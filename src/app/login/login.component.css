@@ -1,0 +1,47 @@
+.card {
+    width: 350px;
+    background-color: transparent;
+    padding: 2rem;
+    border-radius: 10%;
+    border: 1px solid #555555;
+}
+
+
+/*
+label {
+    font-weight: 600;
+}
+
+.login-group {
+    position: relative;
+    border-bottom: 1px solid #f1f1f170;
+    transition: 300ms all ease;
+}
+
+.login-group:hover {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.login-input {
+    background-color: transparent;
+    border: none;
+    padding-left: 1.8rem;
+    color: white;
+}
+
+.login-input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.login-group:hover .login-icon {
+    color: #f1f1f1;
+} */
+
+.loginContainer {
+    position: absolute;
+    left: 35%;
+    top: 17%;
+    border-radius: 10%;
+}

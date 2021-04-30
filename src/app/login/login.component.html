@@ -1,0 +1,25 @@
+<div class="loginPage">
+    <div class="container">
+        <div class="row">
+            <div class="loginContainer">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h3>Login</h3>
+                        <form #LoginForm="ngForm" (ngSubmit)="onLogin(LoginForm)">
+                            <div class=" form-group login-group">
+                                <i class="fa fa-envelope login-icon"></i>
+                                <input type="email " placeholder="Email" name="email" ngModel class="form-control login-input" required>
+                            </div>
+                            <div class="form-group login-group">
+                                <i class="fa fa-lock login-icon"></i>
+                                <input type="password" name="password" ngModel class="form-control login-input" placeholder="Password" required>
+                            </div>
+                            <button class="btn btn-success login-btn" [disabled]="!LoginForm.valid" title="Please fill email and password to login">Login</button>
+                        </form>
+                        <p class="text-danger">{{errorMessage}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

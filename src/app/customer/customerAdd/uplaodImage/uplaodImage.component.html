@@ -1,0 +1,10 @@
+<input class="mt-5" accept=".jpg,.jpeg,.png" #file type="file" name="image" (change)="selectFiles($event)" style="display: none;">
+<button type="button" (click)="file.click()" class="btn btn-outline-info">upload</button>
+<div class="col-md-4">
+    <span class="upload" *ngIf="progress > 0">
+     {{progress}}%
+   </span>
+    <span class="upload" *ngIf="message">
+     {{message}}
+   </span>
+</div>

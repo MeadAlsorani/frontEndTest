@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <button class="btn btn-primary" routerLink="/customerAdd">New Customer</button>
+        <div class="col-md-12">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Phone Number
+                        </th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div *ngFor="let customer of customers">
+                        <tr>
+                            <td>{{customer.name}} {{customer.surname}}</td>
+                            <td>
+                                {{customer.phoneNumber}}
+                            </td>
+                            <td>
+                                <button>Details</button>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
