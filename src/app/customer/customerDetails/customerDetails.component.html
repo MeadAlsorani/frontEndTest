@@ -1,3 +1,15 @@
-<p>
-  customerDetails works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <img [src]="imagesUrl+customer.picture" [alt]="customer.picture" class="detail-image">
+        </div>
+        <div class="col-md-8 col-sm-6 p-4">
+            <h3>{{customer.name}} {{customer.surName}}</h3>
+            <h5>{{customer.phoneNumber}}</h5>
+            <p *ngFor="let address of customer.addresses">
+                {{address.street}} - {{address.district}} - {{address.city}} {{address.doorNo}}/{{address.buildingNo}} ({{address.zipCode}})
+            </p>
+            <button class="btn btn-outline-dark" routerLink="/customerList">back</button>
+        </div>
+    </div>
+</div>

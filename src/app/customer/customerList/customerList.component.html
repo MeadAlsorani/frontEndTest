@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
         <button class="btn btn-primary" routerLink="/customerAdd">New Customer</button>
+        <button class="btn btn-outline-dark" routerLink="/home">Back</button>
         <div class="col-md-12">
-            <table class="w-100">
+            <table class="table w-100">
                 <thead>
                     <tr>
                         <th>
@@ -15,19 +16,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <div *ngFor="let customer of customers">
-                        <tr>
-                            <td>{{customer.name}} {{customer.surname}}</td>
-                            <td>
-                                {{customer.phoneNumber}}
-                            </td>
-                            <td>
-                                <button>Details</button>
-                                <button>Edit</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
-                    </div>
+                    <tr *ngFor="let customer of customers">
+                        <td><span>{{customer.name}} {{customer.surname}}</span></td>
+                        <td>
+                            {{customer.phoneNumber}}
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-primary" routerLink="/customerDetails/{{customer.id}}">Details</button>
+                            <button class="btn btn-outline-warning" routerLink="/customerEdit/{{customer.id}}">Edit</button>
+                            <button class="btn btn-outline-danger" (click)="onDelete(customer.id)">Delete</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

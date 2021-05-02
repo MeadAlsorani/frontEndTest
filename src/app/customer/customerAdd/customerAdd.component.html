@@ -3,23 +3,43 @@
         <form [formGroup]="customerAddForm" (ngSubmit)="onAdd(customerAddForm.value)">
             <div class="form-group">
                 <h4>Name</h4>
-                <input type="text" class="form-control" formControlName="name">
+                <input type="text" class="form-control" formControlName="name" />
             </div>
             <div class="form-group">
                 <h4>Surname</h4>
-                <input type="text" class="form-control" formControlName="surName">
+                <input type="text" class="form-control" formControlName="surName" />
             </div>
             <div class="form-group">
                 <h4>Phone number</h4>
-                <input type="number" class="form-control" formControlName="phoneNumber">
+                <input type="text" class="form-control" formControlName="phoneNumber" />
+            </div>
+            <div class="form-group">
+                <h3>Addresses</h3>
+                <hr />
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let address of addresses">
+                        {{address.street}} - {{address.district}} - {{address.city}} , {{address.doorNo}}/{{address.buildingNo}} - {{address.zipCode}}
+                    </li>
+                </ul>
+                <hr />
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="city" #city />
+                    <input type=" text " class="form-control" placeholder="street" #street />
+                    <input type="text " class="form-control" placeholder="district" #district />
+                    <input type="text" class="form-control" placeholder="zipCode" #zipCode />
+                    <input type="text" class="form-control" placeholder="doorNo" #doorNo />
+                    <input type=" text " class="form-control" placeholder="buildingNo" #buildingNo />
+                    <button class="btn btn-outline-info" type="button" (click)="AddAddress()">
+            Add address
+          </button>
+                </div>
             </div>
             <div class="col-sm-12 form-group">
                 <div class="photo-control">
                     <app-uplaodImage (onUploadFinished)="uploadFinished($event)"></app-uplaodImage>
                 </div>
             </div>
-            <button class="btn btn-success" type="submit" [disabled]="!customerAddForm.valid">Add</button>
-
+            <button class="btn btn-success">Add Customer</button>
         </form>
     </div>
 </div>

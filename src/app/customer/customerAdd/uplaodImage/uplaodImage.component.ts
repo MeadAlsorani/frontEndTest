@@ -10,19 +10,22 @@ export class UplaodImageComponent implements OnInit {
   public progress: number;
   public message: string;
   @Output() public onUploadFinished = new EventEmitter();
-  public uploadData = new FormData();
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}
-  selectedFiles: File;
   selectFiles(event) {
-    this.selectedFiles = event.target.files;
-      this.uploadData.append('images', this.selectedFiles, this.selectFiles.name);
-    this.onUpload();
+    let uploadData = new FormData();
+    let Files: File;
+    Files = event.target.files[0];
+      uploadData.append('images', Files,Files.name);
+      console.log(Files.name);
+    this.onUpload(uploadData);
   }
-  onUpload() {
+  onUpload(pic) {
+    console.log(pic);
+
     this.http
-      .post(environment.apiUrl+'costumers/uplaodImage', this.uploadData, {
+      .post(environment.apiUrl+'costumers/uplaodImage', pic, {
         reportProgress: true,
         observe: 'events',
       })

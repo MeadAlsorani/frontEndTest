@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <button class="btn btn-outline-dark" routerLink="/home">Back</button>
+        <table class="w-100">
+            <thead>
+                <th>city</th>
+                <th>district</th>
+                <th>street</th>
+                <th>zip code</th>
+                <th>building NO.</th>
+                <th>Door NO.</th>
+                <th>Customer</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let address of addresses">
+                    <td>{{address.city}}</td>
+                    <td>{{address.district}}</td>
+                    <td>{{address.street}}</td>
+                    <td>{{address.zipCode}}</td>
+                    <td>{{address.buildingNo}}</td>
+                    <td>{{address.doorNo}}</td>
+                    <td>{{address.costumer.name}} {{address.costumer.surName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

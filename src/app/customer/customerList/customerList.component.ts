@@ -13,9 +13,20 @@ customers:Array<Customer>;
   ) { }
 
   ngOnInit() {
+    this.fetchCustomer();
+  }
+  fetchCustomer(){
     this.custumerService.getCustomers().subscribe(data=>{
       this.customers=data;
     });
+  }
+  onDelete(id){
+    if (confirm("Are you sure to delete the user?")) {
+      this.custumerService.deleteCustomer(id).subscribe(()=>{
+        alert("user deleted successfuly..!");
+        this.fetchCustomer();
+      })
+    }
   }
 
 }

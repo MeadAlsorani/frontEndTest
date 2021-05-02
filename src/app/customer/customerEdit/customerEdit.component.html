@@ -1,3 +1,24 @@
-<p>
-  customerEdit works!
-</p>
+<div class="container">
+    <div class="row">
+        <form [formGroup]="customerEditForm" (ngSubmit)="onEdit(customerEditForm.value)">
+            <div class="form-group">
+                <h4>Name</h4>
+                <input type="text" class="form-control" formControlName="name" />
+            </div>
+            <div class="form-group">
+                <h4>Surname</h4>
+                <input type="text" class="form-control" formControlName="surName" />
+            </div>
+            <div class="form-group">
+                <h4>Phone number</h4>
+                <input type="text" class="form-control" formControlName="phoneNumber" />
+            </div>
+            <div class="col-sm-12 form-group">
+                <div class="photo-control">
+                    <app-uplaodImage (onUploadFinished)="uploadFinished($event)"></app-uplaodImage>
+                </div>
+            </div>
+            <button class="btn btn-success">Edit</button>
+        </form>
+    </div>
+</div>

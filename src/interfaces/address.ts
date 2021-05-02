@@ -3,7 +3,7 @@ import { Customer } from './customer';
 export interface Address {
   id: number;
   city: string;
-  dirstrict: string;
+  district: string;
   street: string;
   zipCode: string;
   buildingNo: string;
