@@ -36,7 +36,7 @@ namespace BackEnd
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://localhost:4200")
+                    builder => builder.WithOrigins("http://localhost:4200", "http://mead-alsorani.com", "https://mead-alsorani.com", "test.mead-alsorani.com")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());

@@ -1,3 +1,39 @@
-<p>
-  userList works!
-</p>
+<div class="container">
+    <div class="row">
+        <button class="btn btn-outline-dark mr-2" routerLink="/home">Back</button>
+        <button class="btn btn-outline-primary" routerLink="/user-add">Add new user</button>
+        <table class="table col-md-12 col-sm-8">
+            <thead>
+                <tr>
+                    <th>
+                        User name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userAccounts">
+                    <td>
+                        {{user.userName}}
+                    </td>
+                    <td>
+                        {{user.email}}
+                    </td>
+                    <td>
+                        <button class="user-icon btn btn-default" [routerLink]="['/user-edit',user.id]">
+                            <i style="color: #ccaa22;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                        <buttona class="user-icon btn btn-default" (click)="deleteUser(user.id)">
+                            <i class="fa fa-trash" style="color: #aa2222;" aria-hidden="true"></i>
+                        </buttona>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

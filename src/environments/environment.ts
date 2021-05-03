@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl:"http://localhost:5000/",
-  apiUrl:"http://localhost:5000/api/",
-  imageUrl:"http://localhost:5000/Resources/customerImages/"
+  baseUrl:"http://mead-alsorani.com/backEnd",
+  apiUrl:"http://mead-alsorani.com/backEnd/api/",
+  imageUrl:"http://mead-alsorani.com/backEnd/Resources/customerImages/"
 };
 
 /*

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserAccountService } from 'src/services/userAccount.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontEndTest';
+  islogged:boolean;
+  constructor(
+    private userservice:UserAccountService
+  ) {
+    this.islogged=this.userservice.isLogged();
+  }
 }
