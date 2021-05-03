@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/interfaces/customer';
+import { AddressService } from 'src/services/address.service';
 import {CustomerService} from '../../../services/customer.service';
 @Component({
   selector: 'app-customerList',
@@ -9,7 +10,8 @@ import {CustomerService} from '../../../services/customer.service';
 export class CustomerListComponent implements OnInit {
 customers:Array<Customer>;
   constructor(
-    private custumerService:CustomerService
+    private custumerService:CustomerService,
+    private addressService:AddressService
   ) { }
 
   ngOnInit() {
@@ -22,8 +24,13 @@ customers:Array<Customer>;
   }
   onDelete(id){
     if (confirm("Are you sure to delete the user?")) {
-      this.custumerService.deleteCustomer(id).subscribe(()=>{
+      this.custumerService.deleteCustomer(id).subscribe((data)=>{
         alert("user deleted successfuly..!");
+        if (data.addresses.length>0) {
+          for(let i=0;i<data.addresses.length;i++){
+            this.addressService.deleteAddress(data.addresses[i].id).subscribe();
+          }
+        }
         this.fetchCustomer();
       })
     }

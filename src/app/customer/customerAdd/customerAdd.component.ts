@@ -22,6 +22,8 @@ export class CustomerAddComponent implements OnInit {
   @ViewChild('doorNo') doorNoInp:ElementRef;
   @ViewChild('street') streetInp:ElementRef;
   @ViewChild('zipCode') zipCodeInp:ElementRef;
+
+  selectedIndex:number=0;
   constructor(
     private custumerService:CustomerService,
     private router:Router,
@@ -39,6 +41,12 @@ export class CustomerAddComponent implements OnInit {
       phoneNumber:new FormControl(null,Validators.required),
       picture:new FormControl(null)
     });
+  }
+  nextTab(){
+    this.selectedIndex+=1;
+  }
+  prevTab(){
+    this.selectedIndex-=1;
   }
   uploadFinished(event) {
     this.response = event;

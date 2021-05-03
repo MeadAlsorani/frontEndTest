@@ -1,45 +1,58 @@
 <div class="container">
     <div class="row">
-        <form [formGroup]="customerAddForm" (ngSubmit)="onAdd(customerAddForm.value)">
-            <div class="form-group">
-                <h4>Name</h4>
-                <input type="text" class="form-control" formControlName="name" />
-            </div>
-            <div class="form-group">
-                <h4>Surname</h4>
-                <input type="text" class="form-control" formControlName="surName" />
-            </div>
-            <div class="form-group">
-                <h4>Phone number</h4>
-                <input type="text" class="form-control" formControlName="phoneNumber" />
-            </div>
-            <div class="form-group">
-                <h3>Addresses</h3>
-                <hr />
-                <ul class="list-group">
-                    <li class="list-group-item" *ngFor="let address of addresses">
-                        {{address.street}} - {{address.district}} - {{address.city}} , {{address.doorNo}}/{{address.buildingNo}} - {{address.zipCode}}
-                    </li>
-                </ul>
-                <hr />
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="city" #city />
-                    <input type=" text " class="form-control" placeholder="street" #street />
-                    <input type="text " class="form-control" placeholder="district" #district />
-                    <input type="text" class="form-control" placeholder="zipCode" #zipCode />
-                    <input type="text" class="form-control" placeholder="doorNo" #doorNo />
-                    <input type=" text " class="form-control" placeholder="buildingNo" #buildingNo />
-                    <button class="btn btn-outline-info" type="button" (click)="AddAddress()">
-            Add address
-          </button>
-                </div>
-            </div>
-            <div class="col-sm-12 form-group">
-                <div class="photo-control">
-                    <app-uplaodImage (onUploadFinished)="uploadFinished($event)"></app-uplaodImage>
-                </div>
-            </div>
-            <button class="btn btn-success">Add Customer</button>
+        <form [formGroup]="customerAddForm" (ngSubmit)="onAdd(customerAddForm.value)" class="col-12">
+            <mat-tab-group mat-align-tabs="start" class="w-100" [selectedIndex]="selectedIndex">
+                <mat-tab label="Basic Info">
+                    <div class="form-group">
+                        <h4>Name</h4>
+                        <input type="text" class="form-control" formControlName="name" />
+                    </div>
+                    <div class="form-group">
+                        <h4>Surname</h4>
+                        <input type="text" class="form-control" formControlName="surName" />
+                    </div>
+                    <div class="form-group">
+                        <h4>Phone number</h4>
+                        <input type="text" class="form-control" formControlName="phoneNumber" />
+                    </div>
+                    <hr>
+                    <button type="button" class="btn btn-outline-primary" (click)="nextTab()">Next</button>
+                </mat-tab>
+                <mat-tab label="Addresses">
+                    <div class="form-group">
+                        <h3>Addresses</h3>
+                        <hr />
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor="let address of addresses">
+                                {{ address.street }} - {{ address.district }} - {{ address.city }} , {{ address.doorNo }}/{{ address.buildingNo }} - {{ address.zipCode }}
+                            </li>
+                        </ul>
+                        <hr />
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="city" #city />
+                            <input type=" text " class="form-control" placeholder="street" #street />
+                            <input type="text " class="form-control" placeholder="district" #district />
+                            <input type="text" class="form-control" placeholder="zipCode" #zipCode />
+                            <input type="text" class="form-control" placeholder="doorNo" #doorNo />
+                            <input type=" text " class="form-control" placeholder="buildingNo" #buildingNo />
+                            <button class="btn btn-outline-info" type="button" (click)="AddAddress()">
+                Add address
+              </button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary" (click)="nextTab()">Next</button>
+                    <button type="button" class="btn btn-outline-default" (click)="prevTab()">Back</button>
+                </mat-tab>
+                <mat-tab label="Picture">
+                    <div class="col-sm-12 form-group">
+                        <div class="photo-control">
+                            <app-uplaodImage (onUploadFinished)="uploadFinished($event)"></app-uplaodImage>
+                        </div>
+                        <br><br>
+                        <button class="btn btn-success" type="submit" title="please complete the form to submit" [disabled]="!customerAddForm.valid">Add Customer</button>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
         </form>
     </div>
 </div>

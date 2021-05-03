@@ -8962,11 +8962,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maads\\Desktop\\Test\\BackEnd\\BackEnd.csproj",
+      "projectUniqueName": "C:\\Users\\maads\\Desktop\\Test\\frontEndTest\\BackEnd\\BackEnd.csproj",
       "projectName": "BackEnd",
-      "projectPath": "C:\\Users\\maads\\Desktop\\Test\\BackEnd\\BackEnd.csproj",
+      "projectPath": "C:\\Users\\maads\\Desktop\\Test\\frontEndTest\\BackEnd\\BackEnd.csproj",
       "packagesPath": "C:\\Users\\maads\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maads\\Desktop\\Test\\BackEnd\\obj\\",
+      "outputPath": "C:\\Users\\maads\\Desktop\\Test\\frontEndTest\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\maads\\AppData\\Roaming\\NuGet\\NuGet.Config",
